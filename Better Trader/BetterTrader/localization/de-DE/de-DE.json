@@ -1,0 +1,12 @@
+{
+  "types": {
+    "merchanthub": "Better-Trader-Hub",
+    "merchanthub2": "Better-Trader-Hub",
+    "bettertraderhub": "Better-Trader-Hub"
+  },
+  "typeuses": {
+    "merchanthub": "Rechtsklick oeffnet das Better-Trader-Popup.",
+    "merchanthub2": "Rechtsklick oeffnet das Better-Trader-Popup.",
+    "bettertraderhub": "Rechtsklick oeffnet das Better-Trader-Popup."
+  }
+}

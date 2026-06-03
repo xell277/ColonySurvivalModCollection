@@ -1,0 +1,44 @@
+[
+  {
+    "name": "BetterTrader",
+    "description": "Turns the vanilla Merchant Hub into a Better Trader hub that opens the server-side Better Trader popup.",
+    "version": "1.3.3",
+    "author": "Xell",
+    "enableddefault": true,
+    "isoptional": true,
+    "marksgamemodded": true,
+    "compatibleversions": [
+      "0.15.1.0",
+      "0.15.1.1"
+    ],
+    "dependencies": [],
+    "jsonFiles": [
+      {
+        "fileType": "addOrOverrideLocalization",
+        "index": 1000,
+        "relativePath": "localization/en-US/en-US.json"
+      },
+      {
+        "fileType": "addOrOverrideLocalization",
+        "index": 1000,
+        "relativePath": "localization/de-DE/de-DE.json"
+      },
+      {
+        "fileType": "generateBlocks",
+        "index": 1010,
+        "relativePath": "types/bettertrader_generateblocks.json"
+      },
+      {
+        "fileType": "overrideTypeProperties",
+        "index": 1020,
+        "relativePath": "bettertrader_type_overrides.json"
+      },
+      {
+        "fileType": "addOrReplacePlayerRecipes",
+        "index": 1030,
+        "relativePath": "recipes/bettertrader_player_recipes.json"
+      }
+    ],
+    "dllpath": "BetterTrader.dll"
+  }
+]

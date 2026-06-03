@@ -1,0 +1,23 @@
+[
+  {
+    "cooldown": 120.0,
+    "defaultLimit": 1,
+    "name": "pipliz.jobblockcrafter.merchanthub",
+    "requires": [
+      {
+        "type": "planks"
+      },
+      {
+        "amount": 3,
+        "type": "copperingot"
+      }
+    ],
+    "requiresScience": "pipliz.trading",
+    "results": [
+      {
+        "type": "merchanthub2"
+      }
+    ],
+    "sortWeight": 173
+  }
+]

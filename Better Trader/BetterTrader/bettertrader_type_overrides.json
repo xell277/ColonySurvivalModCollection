@@ -1,0 +1,38 @@
+{
+  "merchanthub": {
+    "attachBehaviour": [
+      "client_reservesecondaryhiton"
+    ],
+    "onRemoveType": "merchanthub2"
+  },
+  "merchanthub2": {
+    "attachBehaviour": [
+      "client_reservesecondaryhiton",
+      {
+        "id": "dependentBlocks",
+        "instances": [
+          { "pos": [ -1, 0, 0 ], "type": "npcblockerair" },
+          { "pos": [ -1, 0, 1 ], "type": "npcblockerair" },
+          { "pos": [ -1, 0, -1 ], "type": "npcblockerair" },
+          { "pos": [ 0, 0, -1 ], "type": "npcblockerair" },
+          { "pos": [ 0, 0, 1 ], "type": "npcblockerair" }
+        ]
+      }
+    ]
+  },
+  "bettertraderhub": {
+    "onRemoveType": "merchanthub2"
+  },
+  "bettertraderhubx-": {
+    "onRemoveType": "merchanthub2"
+  },
+  "bettertraderhubx+": {
+    "onRemoveType": "merchanthub2"
+  },
+  "bettertraderhubz-": {
+    "onRemoveType": "merchanthub2"
+  },
+  "bettertraderhubz+": {
+    "onRemoveType": "merchanthub2"
+  }
+}

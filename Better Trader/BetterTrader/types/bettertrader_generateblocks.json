@@ -1,0 +1,62 @@
+[
+  {
+    "baseType": {
+      "attachBehaviour": [
+        "client_reservesecondaryhiton",
+        {
+          "id": "dependentBlocks",
+          "instances": [
+            { "pos": [ -1, 0, 0 ], "type": "npcblockerair" },
+            { "pos": [ -1, 0, 1 ], "type": "npcblockerair" },
+            { "pos": [ -1, 0, -1 ], "type": "npcblockerair" },
+            { "pos": [ 0, 0, -1 ], "type": "npcblockerair" },
+            { "pos": [ 0, 0, 1 ], "type": "npcblockerair" }
+          ]
+        }
+      ],
+      "categories": [
+        "essential"
+      ],
+      "customData": {
+        "culledShadows": true
+      },
+      "colliders": [
+        {
+          "min": [ -1, -0.5, -1.2 ],
+          "max": [ 0, 0.5, 1.2 ],
+          "impactsBlockPlacement": true
+        },
+        {
+          "min": [ -0.575, -0.5, -1.426 ],
+          "max": [ -0.425, 1.65, -1.276 ],
+          "impactsBlockPlacement": true,
+          "impactsPlayerSelection": false
+        },
+        {
+          "min": [ -0.575, -0.5, 1.284 ],
+          "max": [ -0.425, 1.65, 1.434 ],
+          "impactsBlockPlacement": true,
+          "impactsPlayerSelection": false
+        },
+        {
+          "min": [ -1.253, 1.5, -1.493 ],
+          "max": [ 0.25, 1.80, 1.495 ],
+          "impactsBlockPlacement": true,
+          "impactsPlayerSelection": false
+        }
+      ],
+      "icon": "../../../textures/icons/merchanthub2.png",
+      "isSolid": false,
+      "lightingTransparency": 150,
+      "mesh": "../../../meshes/merchanthub2.glb",
+      "needsBase": true,
+      "onPlaceAudio": "woodPlace",
+      "onRemoveAudio": "woodDeleteLight",
+      "onRemoveType": "merchanthub2",
+      "pathingImpact": "AsUntouchableSolid",
+      "sideall": "neutral"
+    },
+    "generateType": "rotateBlock",
+    "typeName": "bettertraderhub"
+  }
+]
