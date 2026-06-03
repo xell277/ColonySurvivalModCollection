@@ -1,0 +1,20 @@
+[
+  {
+    "cooldown": 25.0,
+    "defaultLimit": 2,
+    "defaultPriority": 100,
+    "name": "BetterWater.Tinkerer.BucketEmpty",
+    "requires": [
+      {
+        "amount": 3,
+        "type": "planks"
+      }
+    ],
+    "results": [
+      {
+        "type": "BetterWater.BucketEmpty"
+      }
+    ],
+    "sortWeight": 26
+  }
+]

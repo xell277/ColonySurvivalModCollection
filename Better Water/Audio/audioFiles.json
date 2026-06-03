@@ -1,0 +1,16 @@
+[
+  {
+    "clipCollectionName": "BetterWater.Waterfall",
+    "range": 24.0,
+    "fileList": [
+      {
+        "audioGroup": "BlockLoop",
+        "isThreeD": true,
+        "volume": 0.51,
+        "path": "./Waterfall.ogg",
+        "pitchMinimum": 0.98,
+        "pitchMaximum": 1.02
+      }
+    ]
+  }
+]

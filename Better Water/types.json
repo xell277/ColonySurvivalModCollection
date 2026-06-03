@@ -1,0 +1,18 @@
+{
+  "BetterWater.BucketEmpty": {
+    "categories": [
+      "tool"
+    ],
+    "icon": "./icons/bucket_empty.png",
+    "isPlaceable": false,
+    "maxStackSize": 1
+  },
+  "BetterWater.BucketWater": {
+    "categories": [
+      "tool"
+    ],
+    "icon": "./icons/bucket_water.png",
+    "isPlaceable": false,
+    "maxStackSize": 1
+  }
+}

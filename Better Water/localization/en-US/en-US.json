@@ -1,0 +1,6 @@
+{
+  "types": {
+    "BetterWater.BucketEmpty": "Empty Bucket\nRight click water to scoop it up.",
+    "BetterWater.BucketWater": "Water Bucket\nRight click a block side to place water."
+  }
+}

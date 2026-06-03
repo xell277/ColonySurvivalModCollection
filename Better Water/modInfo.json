@@ -1,0 +1,40 @@
+[
+  {
+    "name": "BetterWater",
+    "description": "Waterfall? Anyone?",
+    "version": "1.0.0",
+    "author": "Xell",
+    "enableddefault": true,
+    "isoptional": true,
+    "marksgamemodded": true,
+    "compatibleversions": [
+      "0.15.1.0",
+      "0.15.1.1"
+    ],
+    "dependencies": [],
+    "jsonFiles": [
+      {
+        "fileType": "addNewTypes",
+        "index": 1000000,
+        "relativePath": "types.json"
+      },
+      {
+        "fileType": "addOrReplaceNPCRecipes",
+        "index": 1000000,
+        "npcType": "pipliz.tinkerer",
+        "relativePath": "recipes/recipes_tinkerer.json"
+      },
+      {
+        "fileType": "addOrOverrideLocalization",
+        "index": 1000000,
+        "relativePath": "localization/en-US/en-US.json"
+      },
+      {
+        "fileType": "addOrOverrideLocalization",
+        "index": 1000000,
+        "relativePath": "localization/de-DE/de-DE.json"
+      }
+    ],
+    "dllpath": "BetterWater.dll"
+  }
+]

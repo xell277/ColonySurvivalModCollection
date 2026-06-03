@@ -1,0 +1,6 @@
+{
+  "types": {
+    "BetterWater.BucketEmpty": "Leerer Eimer\nRechtsklick auf Wasser, um es aufzusammeln.",
+    "BetterWater.BucketWater": "Wassereimer\nRechtsklick auf eine Blockseite, um Wasser zu setzen."
+  }
+}

@@ -1,0 +1,82 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <RootNamespace>BetterWater</RootNamespace>
+    <AssemblyName>BetterWater</AssemblyName>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <InformationalVersion>1.0.0</InformationalVersion>
+    <GameManagedDir Condition="'$(GameManagedDir)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Colony Survival\colonyserver_Data\Managed\</GameManagedDir>
+    <GameModDir Condition="'$(GameModDir)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Colony Survival\gamedata\mods\BetterWater\</GameModDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(GameManagedDir)Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(GameManagedDir)Newtonsoft.Json.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Unity.Mathematics">
+      <HintPath>$(GameManagedDir)Unity.Mathematics.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(GameManagedDir)UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(GameManagedDir)UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="modInfo.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="betterwaterconfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Audio\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="types.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="recipes\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="localization\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="icons\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <BetterWaterAudioFiles Include="Audio\**\*" />
+    <BetterWaterDataFiles Include="types.json;recipes\**\*;localization\**\*;icons\**\*" />
+  </ItemGroup>
+
+  <Target Name="DeployBetterWater" AfterTargets="Build">
+    <MakeDir Directories="$(GameModDir)" />
+    <MakeDir Directories="$(GameModDir)Audio" />
+    <MakeDir Directories="$(GameModDir)recipes" />
+    <MakeDir Directories="$(GameModDir)icons" />
+    <MakeDir Directories="$(GameModDir)localization\en-US" />
+    <MakeDir Directories="$(GameModDir)localization\de-DE" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(GameModDir)" />
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\modInfo.json" DestinationFiles="$(GameModDir)modInfo.json" />
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\betterwaterconfig.json" DestinationFolder="$(GameModDir)" />
+    <Copy SourceFiles="@(BetterWaterAudioFiles)" DestinationFiles="@(BetterWaterAudioFiles->'$(GameModDir)Audio\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(BetterWaterDataFiles)" DestinationFiles="@(BetterWaterDataFiles->'$(GameModDir)%(Identity)')" />
+  </Target>
+
+</Project>

@@ -1,0 +1,21 @@
+{
+  "Enabled": true,
+  "VanillaSpreadEnabled": false,
+  "MaxFallDistance": 10,
+  "HorizontalSpread": 3,
+  "SourceHorizontalSpread": 6,
+  "FlowHorizontalSpread": 3,
+  "TickIntervalMilliseconds": 250,
+  "MaxUpdatesPerTick": 96,
+  "TreatUntrackedWaterAsSource": true,
+  "EnableWaterfallSounds": true,
+  "WaterfallAudioClipName": "BetterWater.Waterfall",
+  "WaterfallAudioCooldownMilliseconds": 6000,
+  "WaterfallAudioLoopMilliseconds": 12000,
+  "WaterfallAudioMinimumFallDistance": 1,
+  "WaterfallAudioClusterRadius": 6,
+  "ShowSourceMarkers": false,
+  "SourceMarkerIntervalMilliseconds": 4000,
+  "SourceMarkerDurationSeconds": 4.5,
+  "DebugLogging": false
+}
