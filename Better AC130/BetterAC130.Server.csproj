@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <ColonySurvivalManagedDir Condition="'$(ColonySurvivalManagedDir)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Colony Survival\colonyserver_Data\Managed</ColonySurvivalManagedDir>
+    <AssemblyName>BetterAC130.Server</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>net48</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>12.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(ColonySurvivalManagedDir)\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <ProjectReference Include="BetterAC130.Shared.csproj" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(ColonySurvivalManagedDir)\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(ColonySurvivalManagedDir)\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>$(ColonySurvivalManagedDir)\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>$(ColonySurvivalManagedDir)\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics">
+      <HintPath>$(ColonySurvivalManagedDir)\Unity.Mathematics.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

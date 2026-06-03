@@ -1,0 +1,138 @@
+{
+  "camera": {
+    "altitude": 110.0,
+    "tiltDegrees": 67.5,
+    "yawDegrees": 35.0,
+    "lateralOffset": 28.0,
+    "followLerp": 10.0,
+    "worldReticleHeightOffset": 0.08
+  },
+  "session": {
+    "durationSeconds": 60.0,
+    "cooldownGameDays": 10.0,
+    "allowBlockDamage": true,
+    "blockDamageRadiusMultiplier": 1.25,
+    "orbitRadius": 88.0,
+    "orbitAltitude": 82.0,
+    "orbitSecondsPerRotation": 36.0,
+    "vehicleUpdateDelayMS": 80,
+    "vehicleMeshPath": "../../baseconfig/meshes/glider.ply",
+    "vehicleTextureMapping": "neutral",
+    "vehicleSendRadius": 450,
+    "vehicleInterpolationLooseness": 1.2,
+    "vehicleTimeoutSeconds": 2.5
+  },
+  "audio": {
+    "startClip": "betterac130.start",
+    "backgroundLoopClip": "betterac130.background",
+    "backgroundLoopLengthMs": 251716,
+    "directedLoopStopRadius": 12.0
+  },
+  "upgrades": {
+    "duration": {
+      "maxLevel": 4,
+      "baseCost": 2000,
+      "costStep": 1000,
+      "durationSecondsPerLevel": 10.0
+    },
+    "cooldown": {
+      "maxLevel": 4,
+      "baseCost": 2000,
+      "costStep": 1250,
+      "cooldownDaysReductionPerLevel": 3.0
+    },
+    "ammo": {
+      "maxLevel": 4,
+      "baseCost": 1500,
+      "costStep": 1000,
+      "ammoBonusPercentPerLevel": 0.4
+    },
+    "fireRate": {
+      "maxLevel": 4,
+      "baseCost": 2250,
+      "costStep": 1250,
+      "cooldownReductionPercentPerLevel": 0.15
+    },
+    "damage": {
+      "maxLevel": 4,
+      "baseCost": 2500,
+      "costStep": 1500,
+      "damageBonusPercentPerLevel": 0.25
+    }
+  },
+  "weapons": [
+    {
+      "id": "25mm",
+      "displayName": "25MM",
+      "hudCountLabel": "RDS",
+      "damage": 130.0,
+      "radius": 4.1,
+      "cooldownSeconds": 0.13,
+      "baseAmmo": 180,
+      "explosionStrength": 7.5,
+      "smokeMultiplier": 0.4,
+      "particleSize": 0.28,
+      "trailFadeSeconds": 0.22,
+      "projectileTravelSeconds": 0.06,
+      "projectileTrailSegments": 1,
+      "impactBurstCount": 1,
+      "impactBurstIntervalSeconds": 0.03,
+      "impactBurstJitterRadius": 0.1,
+      "impactSmokeSeconds": 0.15,
+      "fireAudio": "betterac130.25mm",
+      "fireAudioCadenceSeconds": 0.0,
+      "useLoopedFireAudio": true,
+      "fireLoopLengthMs": 520,
+      "impactAudio": "bomb",
+      "muzzleFlashSeconds": 0.06
+    },
+    {
+      "id": "40mm",
+      "displayName": "40MM",
+      "hudCountLabel": "RDS",
+      "damage": 350.0,
+      "radius": 7.0,
+      "cooldownSeconds": 1.1,
+      "baseAmmo": 25,
+      "explosionStrength": 14.0,
+      "smokeMultiplier": 1.15,
+      "particleSize": 0.62,
+      "trailFadeSeconds": 0.42,
+      "projectileTravelSeconds": 0.28,
+      "projectileTrailSegments": 4,
+      "impactBurstCount": 2,
+      "impactBurstIntervalSeconds": 0.07,
+      "impactBurstJitterRadius": 0.65,
+      "impactSmokeSeconds": 0.8,
+      "fireAudio": "betterac130.40mm",
+      "fireAudioCadenceSeconds": 0.0,
+      "useLoopedFireAudio": false,
+      "fireLoopLengthMs": 1920,
+      "impactAudio": "betterac130.40mmimpact",
+      "muzzleFlashSeconds": 0.1
+    },
+    {
+      "id": "105mm",
+      "displayName": "105MM",
+      "hudCountLabel": "RDS",
+      "damage": 1120.0,
+      "radius": 12.5,
+      "cooldownSeconds": 3.2,
+      "baseAmmo": 5,
+      "explosionStrength": 28.0,
+      "smokeMultiplier": 2.8,
+      "particleSize": 1.15,
+      "trailFadeSeconds": 0.72,
+      "projectileTravelSeconds": 0.95,
+      "projectileTrailSegments": 8,
+      "impactBurstCount": 4,
+      "impactBurstIntervalSeconds": 0.09,
+      "impactBurstJitterRadius": 1.5,
+      "impactSmokeSeconds": 1.7,
+      "fireAudio": "betterac130.105mm",
+      "fireAudioCadenceSeconds": 0.0,
+      "impactAudio": "betterac130.105mmimpact",
+      "muzzleFlashSeconds": 0.15
+    }
+  ]
+}
