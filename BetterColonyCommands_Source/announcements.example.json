@@ -1,0 +1,14 @@
+{
+    "welcomeMessage" : "Welcome on our server",
+	"IntervalSeconds" : 900,
+	"Messages" : [
+		{
+			"text" : "Visit our homepage",
+			"enabled" : true
+		},
+		{
+			"text" : "Copy this file into the world savegame directory. Remove the .example part",
+			"enabled" : false
+		}
+	]
+}

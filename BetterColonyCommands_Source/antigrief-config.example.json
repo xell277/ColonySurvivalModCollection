@@ -1,0 +1,16 @@
+{
+	"SpawnProtectionRange" : 200,
+	"BannerProtectionRange" : 100,
+	"ProtectionIncludesHeightCheck": true,
+	"ColonistLimit": 0,
+	"ColonistLimitCheckSeconds": 30,
+	"ColonistLimitMaxKillPerIteration": 500,
+	"OnlineBackupIntervalHours": 0,
+	"NpcKillsJailThreshold" : 2,
+	"NpcKillsKickThreshold" : 5,
+	"NpcKillsBanThreshold" : 10,
+	"EnableWarpCommand": true,
+	"WarDuration": 7200,
+	"StartupGracePeriod": 0,
+	"WarpRange": 2
+}

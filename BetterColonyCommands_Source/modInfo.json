@@ -1,0 +1,282 @@
+[
+{
+	"name" : "Better Colony Commands",
+	"description" : "anti-grief protection and admin commands",
+	"version" : "1.0.6",
+	"dllpath" : "ColonyCommands.dll",
+	"isoptional" : true,
+	"enableddefault" : true,
+	"compatibleversions" : [
+		"0.15.1.0",
+		"0.15.1.1"
+	],
+	"patchnotes": [
+		{ "version": "1.0.6", "notes": [
+				"fixed quarter block placement regression caused by the transport compatibility hook reserving non-transport clicks too early",
+				"transport clicks are now marked reserved only after confirming the clicked block is actually rail, elevator or glider related"
+			]
+		},
+		{ "version": "1.0.5", "notes": [
+				"added an anti-grief join popup so players can see the notice even when the chat stays collapsed",
+				"made the join popup configurable via ShowJoinPopup in antigrief-config.json",
+				"skip the anti-grief join notice entirely when protection and punishments are fully disabled"
+			]
+		},
+		{ "version": "1.0.4", "notes": [
+				"pushed the anti-grief join message later to avoid the local client chatbox race"
+			]
+		},
+		{ "version": "1.0.3", "notes": [
+				"fixed local world startup by creating default anti-grief config without relying on backup folders",
+				"moved the transport compatibility hook into the main callback manager and added targeted transport logging",
+				"delayed the anti-grief join message to avoid an early local client chat crash"
+			]
+		},
+		{ "version": "1.0.2", "notes": [
+				"added a transport compatibility fallback for rail, elevator and glider clicks on 0.15.1.0",
+				"kept the anti-grief join callback active and verified in current logs"
+			]
+		},
+		{ "version": "1.0.1", "notes": [
+				"rebuilt against Colony Survival 0.15.1.0",
+				"updated player movement and position hooks for the current API",
+				"refreshed anti-grief banner handling for outposts and modern saves"
+			]
+		},
+		{ "version": "0.9.6", "notes": [
+				"updated /help to list only commands the player can use"
+			]
+		},
+		{ "version": "0.9.5", "notes": [
+				"fixed a bug with jailing after killing colonists"
+			]
+		},
+		{ "version": "0.9.4", "notes": [
+				"fixed a bug where outpost banners could overlap other colonies"
+			]
+		},
+		{ "version": "0.9.3", "notes": [
+				"jail system works as expected now, several bugs fixed",
+				"/warp command is activated (was missing for unknown reasons)",
+				"steam hash usable again instead of player name for all commands (see /online id)" 
+			]
+		},
+		{ "version": "0.9.2", "notes": [
+				"antigrief check now includes height to allow sky island builds"
+			]
+		},
+		{ "version": "0.9.1", "notes": [
+				"updated for game version 0.9"
+			]
+		},
+		{ "version": "0.8.14", "notes": [
+				"/ban command supports temporary bans and new /banlog command"
+			]
+		},
+		{ "version": "0.8.13", "notes": [
+				"added /total command. show total existing item amount on the server"
+			]
+		},
+		{ "version": "0.8.12", "notes": [
+				"added /mtop command. same as /top but always includes issuing player rank"
+			]
+		},
+		{ "version": "0.8.11", "notes": [
+				"fixed issue with group permission restore after server restart"
+			]
+		},
+		{ "version": "0.8.10", "notes": [
+				"show [RP] marker also without color group definition",
+				"enable hook into chat colors/prefixes for other mods"
+			]
+		},
+		{ "version": "0.8.9", "notes": [
+				"/rpban and /rpunban commands to allow banning people from using the /rp command"
+			]
+		},
+		{ "version": "0.8.8", "notes": [
+				"antigrief checks custom protection areas first to secure them from nearby banners",
+				"for /war participants permissions are reduced to peasant"
+			]
+		},
+		{ "version": "0.8.7", "notes": [
+				"fixed protection range missing the outermost block"
+			]
+		},
+		{ "version": "0.8.6", "notes": [
+				"/top commands counts colonists only for the colony leader, not all owners",
+				"banning a player will automatically purge all his colonies",
+				"/inactive now shows the number of affected colonies and colonists",
+				"/purgebanner days only purges colonies with all owners inactive"
+			]
+		},
+		{ "version": "0.8.5", "notes": [
+				"added /rp on|off command to allow a chat marker [RP] for roleplay",
+				"after server startup colonies without owner will be automatically purged"
+			]
+		},
+		{ "version": "0.8.4", "notes": [
+				"improved colony name matching for /warpbanner"
+			]
+		},
+		{ "version": "0.8.3", "notes": [
+				"Prevent server connections in the first minutes after startup (for heavy load servers)"
+			]
+		},
+		{ "version": "0.8.2", "notes": [
+				"AngryGuards (if installed) will get notified of /war start"
+			]
+		},
+		{ "version": "0.8.1", "notes": [
+				"updated for CS 0.8.0",
+				"changed default antigrief range to 100 blocks again to match the game max banner area"
+			]
+		},
+		{ "version": "0.7.15", "notes": [
+				"new /war command to allow colony player wars",
+				"custom jail sizes possible, like 10x50x20"
+			]
+		},
+		{ "version": "0.7.14", "notes": [
+				"fixed color for /whisper",
+				"jailing does now remove all permissions from a player"
+			]
+		},
+		{ "version": "0.7.13", "notes": [
+				"fixed a bug where you could not set multiple travel paths",
+				"fixed a crash for /bannername"
+			]
+		},
+		{ "version": "0.7.12", "notes": [
+				"the travel system now automatically warps players",
+				"fix some more occurences of the default spawn point",
+				"use real distance for warp range calculation"
+			]
+		},
+		{ "version": "0.7.11", "notes": [
+				"fixed /warpspawn to take the real spawn point",
+				"/purgebanner failed on colonies without banner"
+			]
+		},
+		{ "version": "0.7.10", "notes": [
+				"fixed chatcolors"
+			]
+		},
+		{ "version": "0.7.9", "notes": [
+				"updated for CS 0.7.1"
+			]
+		},
+		{ "version": "0.7.8", "notes": [
+				"config option EnableWarpCommand to disable the /warp command",
+				"removed alias /home from /warpbanner; other mods already use it",
+				"config option OnlineBackupIntervalHours (default 0) to automatically create backups",
+				"optional colonists per colony limit. Based on player permission tier and zombie spawn difficulty"
+			]
+		},
+		{ "version": "0.7.7", "notes": [
+				"/colonycap works now and limits total colonists per player",
+				"added playtime to /lastseen",
+				"jail time gets paused if a player disconnects and resumes on reconnect"
+			]
+		},
+		{ "version": "0.7.6", "notes": [
+				"aliases /visitjail and /leavejail for /jailleave and /jailvisit",
+				"warp aliases /home and /spawn",
+				"permission mods.scarabol.commands.placewater to restrict placement of water blocks",
+				"permission mods.scarabol.commands.hidefromtopcmd to hide staff from scoring",
+				"'/top time' now calculates correctly",
+				"avoid warping while player is mounted"
+			]
+		},
+		{ "version": "0.7.5", "notes": [
+				"/purgebanner days {minage} to clear abandoned colonies",
+				"fixed /spawnnpc and /inactive commands",
+				"Antigrief now also checks builder/digger areas",
+				"/top no longer sorts reverse",
+				"improved /warpbanner",
+				"/list {player} command to list colonies"
+			]
+		},
+		{ "version": "0.7.4", "notes": [
+				"fixed /killnpc",
+				"fixed /areashow",
+				"fixed /purgebanner all",
+				"/top implemented again"
+			]
+		},
+		{ "version": "0.7.3", "notes": [
+				"fixed /mute handling"
+			]
+		},
+		{ "version": "0.7.2", "notes": [
+				"all /warp and /jail commands now work properly",
+				"admin staff is unaffected by antigrief",
+				"new command /purgebanner to clean banners/colonies"
+			]
+		},
+		{ "version": "0.7.1", "notes": [
+				"updated to game version 0.7"
+			]
+		},
+		{ "version": "6.3.24", "notes": [
+			"/spawnnpc has an optional parameter targetplayer to spawn colonists for another player",
+			"/deletejobs will retry chunk loading several times"
+			]
+		},
+		{ "version": "6.3.23", "notes": [
+			"/areashow {add|remove} to toggle showing area job highlights of all players. /areashow without parameters to reload the job list",
+			"/customarea to find custom protectiona areas"
+			]
+		},
+		{ "version": "6.3.22", "notes": [
+			"/inactive and /purgeall now both have a max option (optinal) to limit the amount of output",
+			"/purgeall deletes areajobs of a player, too",
+			"/spawnnpc to spawn in colonists",
+			"/beds to spawn beds around the banner"
+			]
+		},
+		{ "version": "6.3.21", "notes": [
+			"/deletejobs now loads chunks as needed, might introduce lag",
+			"synchronized mod version with git release tags to allow ModManager to recognize the newest one"
+			]
+		},
+		{ "version": "0.6.3.20", "notes": [
+			"/production command to track daily production of items"
+			]
+		},
+		{ "version": "0.6.3.19", "notes": [
+			"Setting NpcKillsJail|Ban|KickThreshold to 0 disables the feature",
+			"/deletejobs checks if chunks are loaded and sends a warning message, if not",
+			"/deletejobspeed command for admins to adjust how many blocks per second get deleted (4-8 should be reasonable)"
+			]
+		},
+		{ "version": "0.6.3.18", "notes": [
+			"/deletejobs has an optional option includebeds now and deletes jobs without creating lag",
+			"/killplayer, /killnpcs, /deletejobs all got a second permission with .self at the end. Can be set to allow players to use the commands on themselves"
+			]
+		},
+		{ "version": "0.6.3.17", "notes": [
+			"updated permission settings: mods.scarabol.commands.deletejobs.self to allow deleting you own jobs.",
+			"mods.scarabol.commands.deletejobs is only required for admins to allow deleting other player's jobs"
+			]
+		},
+		{ "version": "0.6.3.16", "notes": [
+			"/deletejobs [player] command (requires permission mods.scarabol.commands.deletejobs)"
+			]
+		},
+		{ "version": "0.6.3.15", "notes": [
+			"Hashcodes for playername. The command '/online id' will list hashcodes in addition to the playernames. ",
+			"those hash codes can be used for all commands instead of the player name",
+			"new command /help to display available commands",
+			"new config file setting UnscoredPlayers to hide specific players from the /top command's scoring"
+			]
+		},
+		{ "version": "0.6.3.14", "notes": [
+			"When a player can't place his/her banner the message returns more details information how close the closest banner is",
+			"Jail feature added. After a jail position was set admins can jail players as form of punishment",
+			"There is also a new NPCkillJailThreshold setting to automatically jail players for killing colonists."
+			]
+		}
+	]
+}
+]

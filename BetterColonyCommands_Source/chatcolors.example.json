@@ -1,0 +1,22 @@
+{
+	"god": {
+		"prefix" : "God",
+		"prefixcolor" : "red",
+		"name" : "yellow",
+		"text": "#00ccff"
+	},
+	"emperor": {
+		"prefix" : "Emperor",
+		"name" : "#a335ee",
+		"text": "white"
+	},
+	"king": {
+		"prefix" : "King",
+		"name" : "blue",
+		"text": "white"
+	},
+	"lord": {
+		"prefix" : "Lord",
+		"name" : "heirloom"
+	}
+}

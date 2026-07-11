@@ -1,0 +1,228 @@
+# Better Colony Commands
+
+Server-side Colony Survival mod with anti-grief protection, moderation commands, admin utilities, jail and war systems, announcements, chat colors, activity tracking, trade, warp, travel and cleanup commands.
+
+This is a maintained compatibility refresh of Colony Commands by Xell, continued from Adrenalynn's mod, rebuilt and cleaned for current Colony Survival releases.
+
+## Compatibility
+
+- Colony Survival `0.15.1.0`
+- Colony Survival `0.15.1.1`
+
+## Credits
+
+- Original mod: Colony Commands by Xell, continued from Adrenalynn's mod.
+- Special thanks to Tjohei for most of the ideas and feature requests.
+- Special thanks to Crone for the chat coloring system and score system.
+
+## Current Maintenance Notes
+
+- Rebuilt against the current Colony Survival server API and cleaned up for modern saves.
+- Added a transport compatibility fallback so rail, elevator and glider interaction still works on current game versions.
+- Kept smart quarter block placement intact by reserving clicks only for actual transport targets.
+- Default anti-grief config is generated directly in the savegame if no config exists yet.
+- The anti-grief join notice is delayed and also shown as a small popup because the game chat can remain collapsed on join.
+- Set `ShowJoinPopup` to `false` in `antigrief-config.json` if you only want the chat line.
+
+## Anti-Grief
+
+This mods adds an anti-griefing mechanism to the server.
+Regular players can't change 50 blocks around the spawn point and 50 blocks around other player banners.
+Both values can be adjusted.
+Furthermore players are auto-**jailed** if they kill more than 2 foreign colonists, auto-**kicked** if killing more than 5 and auto-**banned** if they kill more than 6 foreign colonists.
+Those values can be configured in the config file, set them to 0 to disable the feature.
+
+Players are also able to whitelist friends by writing **/antigrief banner [friendly-player-name]** in chat. 
+
+Last but not least players with master permission **mods.scarabol.antigrief** are able to define custom protected areas.
+Use **/antigrief area 10 10** to restrict regular players from changing blocks in an area 10 blocks around your current position.
+
+To **disable anti-grief** in case you play with friends only, just set the protection ranges in the *antigrief-config.json* file in your savegame folder to *-1* each. The message on joining the server will still show up, but it has no effect then.
+
+## Activity-Tracker
+
+This mod adds an player activity tracker. It updates a last seen timestamp for each player, on each player login, logout or world auto-save. Furthermore the total time played is tracked.
+
+Use **/lastseen [playername]** to view the timestamp for a player.
+
+Use **/top time** to view a top ranking with the most time played.
+
+## Announcements
+
+This mods adds a welcome message and automatic announcements to the game.
+See *announcements.example.json* and place it in your savegame folder, like */gamedata/savegames/mysavegamename/announcements.json* to activate them.
+
+## Colonists Cap
+
+This mod can set a maximum for each players colonists number. Each colonist beyond the limit will be killed. By default the limitation is disabled.
+
+Players with **mods.scarabol.commands.colonycap** permission can use **/colonycap [max-number-of-colonists] [check-interval-delay]** to configure a limit or **/colonycap -1** to disable the limitation.
+
+It is also possible to use different colonist limits based on player tier (group) and even colonist limits per colony and difficulty settings.
+Add **ColonistCapacityTiers** to *antigrief-config.json* as an array with the different tier. The tiers have to be assigned to groups as a permission **mods.scarabol.commands.colonistcapacity.tier1** .tier2 and so on.
+
+For limits per colony and tier add **ColonistLimitsColonyDifficultyTiers** to *antigrief-config.json*. It uses the same permission tiers as above but for each tier you can define an array of limits which is based on the colony difficulty settings, aka number of zombie spawns. For both day and night zombies they range from 'none' to 'very high' (1-5). Those are added together as difficulty so there are 10 possible difficulty settings.
+
+## Fast Travel System
+
+When a travel path is set up, a player approaching the spot gets automatically warped to the end point.
+
+Creating travel paths requires permission **mods.scarabol.commands.travelpaths**. Edit *DefaultWarpRange* in *antigrief-config.json* to change the range for warping spots (how close a player has to be).
+
+Use **/travel** to start a travel path and type it again to set the end point.
+
+Use **/travel start** to reset the start point and **/travel remove** near a travel path to remove it.
+
+## Whispering
+
+Use **/whisper [playername] hello friend** or **/w [playername] hello friend** to send a chat message to a specific player instead of the complete server.
+
+## Spam-Protect
+
+Use **/mute [playername] [minutes]** to block a player from EVERY chatting for certain minutes.
+After timeout the player is automatically unblocked or one can use **/unmute [playername]** to remove the blocking manually.
+
+Muting and Unmuting players requires the **mods.scarabol.commands.mute** permission.
+
+## Online Backup
+Add **OnlineBackupIntervalHours** to *antigrief-config.json* to enable a regular online backup. Please note that a regular offline backup is still highly recommended!
+
+## Jail System
+
+The jail is an extension for the Anti-Grief system. Admin or staff members can throw players into jail as punishment. A jailed player can only move within the defined jail area. Should a player try to escape repeatedly his/her jail time will be automatically extended (configurable).
+Getting jailed is also available as punishment option for killing another player's colonists.
+
+Use **/setjail x y z** to define the server jail at your current position. x y z defines the dimensions of the jail. 
+**Notice:** The jail will automatically create a protection area with its range. You might want to create a larger protection area instead, depending on your actual jail build.
+
+Use **/setjail visitor** to define a visitor position for people wanting to visit the jail and its inmates. This position can be outside or inside the jail, visitors are always free to move.
+Requires permission **mods.scarabol.commands.setjailposition**
+
+Use **/jail {player} [time] {reason}** to send a player into jail. The default jail time is 3 minutes or you can specify the exact amount. Reason can be any text (including white spaces) but don't start it with a number (would be taken as time value instead).
+Requires permission **mods.scarabol.commands.jail**
+
+Use **/jailrelease {player}** to release a player from jail for good conduct. Players will be released automatically after their time is done.
+Requires permission **mods.scarabol.commands.jail**
+
+Visitors can use **/jailvisit** to visit the jail (if the visitor position was set). Visitors are completely free to move and can leave anytime.
+For convenience there is also **/jailleave** which will warp a visitor to the position where he/she used /jailvisit. Just in case they have no others means to leave.
+No permissions required for both commands
+
+A jailed player can use **/jailtime** to check his/her remaining time in jail. Once the time is done the player will be automatically released and teleported to spawn.
+No permission required
+
+Use **/jailrec [player]** to check the jail history records. With a player name given it will show all jail records for that player. Without player name it will show the last 10 jail actions.
+Requires permission **mods.scarabol.commands.jail**
+
+## War system
+
+The war system supports roleplay and player / colony war. Players that enable war are allowed to kill NPCs of other players that also have war enabled.
+**/war start [ 120m | 2h | 4h ]** to enable war mode. The default duration is 2 hours (can be changed by config file) and can be extended. Up to the next server restart (war mode does not get saved).
+A player needs to be at an active colony with colonists to start wars.
+**/war** Lists all players that currently have war mode enabled and their remaining time
+**/war end** Can be used by staff to end ongoing wars. Requires permission **mods.scarabol.commands.endwar**
+
+
+<dl>
+<dt>Configurable Settings</dt>
+<dd>After the first start a new file jail-config.json will be generated at the world save directory (gamedate/savegames/&lt;worldname&gt;).</dd>
+<dd>defaultJailTime: 5 Minutes, can be adjusted to any value</dd>
+<dd>graceEscapeAttempts: 3. Number of escape attempts after which additional jail time is added. Set to 0 to disable.</dd>
+<dd>protection-ranges.json contains a new entry NpcKillsJailThreshold, similar to kick and ban thresholds. If unwanted, set the value higher than the kick threshold to disable jailing as punishment option.</dd>
+</dl>
+
+## Writing Player Names
+
+A lot of the commands require the name of a player as target. Names of players can sometimes be hard to type due to international character sets. For all commands the name can be specified in different ways:
+
+**/command 'player name with blanks'** enclose the player name with single quotes.
+
+**/command #12345678** use a 8 digit hash instead of the name. The hashes are printed out by the **/online id** command.
+
+**/command &lt;steamid&gt;** if all of the above fails one can use the full steamid also
+
+## All Commands
+
+<dl>
+<dt>/help</dt>
+<dd>Requires no permission. Shows a list of available commands. One can add a text filter optionally to search for specific commands, like /help jail, for example.<br>
+The other variant of this command is <b>/help admin</b> which list all admin commands. Permission <b>mods.scarabol.commands.adminhelp</b> is required for that.</dd>
+<dt>/bannername</dt>
+<dd>Requires no permission<br>Tells you the name of the owner of the closest banner.</dd>
+<dt>/online</dt>
+<dd>Requires no permission<br>Lists all online player names.<br><b>/online id</b> lists the players including a 8 digit hash which can be used instead of the player name for all commands</dd>
+<dt>/serverpop</dt>
+<dd>Requires no permission<br>Shows current server population.</dd>
+<dt>/stuck</dt>
+<dd>Requires no permission<br>If you don't move for 1 minute, you're warped back to spawn.</dd>
+<dt>/itemid</dt>
+<dd>Requires no permission<br>Prints all items and their key currently stored in the players inventory. Useful for trade and trash.</dd>
+<dt>/trade [playername] [itemname] [amount]</dt>
+<dd>Requires permission: <b>mods.scarabol.commands.trade</b><br>Transfers the given amount of items from your stockpile to the other players stockpile.<br>Example: /trade MyFriend planks 100</dd>
+<dt>/trash [itemname] [amount]</dt>
+<dd>Requires no permission<br>Deletes number of items from your stockpile and inventory.</dd>
+<dt>/top [c|colony|p|player] {score|food|colonists|time|itemtype}</dt>
+<dd>Print the top 10 score, either player or colony based. Default scores by colony. The "score" type is calculated as happiness times colonists. To hide a specific player or group from scoring you can add the permission <b>mods.scarabol.commands.hidefromtopcmd</b> to them.</dd>
+<dt>/warp [targetplayername]</dt>
+<dd>Requires permission: <b>mods.scarabol.commands.warp.self</b><br>Warps to the given playernames position.</dd>
+<dt>/warp [targetplayername] [teleportplayername]</dt>
+<dd>Requires permission: <b>mods.scarabol.commands.warp.player</b><br>Warps the second given player to the first given playernames position.</dd>
+<dt>/warpbanner [bannername]</dt>
+<dd>Player warps to his/her closest colony or to the one given by name. Permission <b>mods.scarabol.commands.warp.banner.self</b> for player to warp to their own colonies, <b>mods.scarabol.commands.warp.banner</b> to warp to any colony</dd>
+<dt>/warpspawn</dt>
+<dd>Requires permission: <b>mods.scarabol.commands.warp.spawn.self</b><br>Warps the calling player to the spawn point.</dd>
+<dt>/warpspawn [teleportplayername]</dt>
+<dd>Requires permission: <b>mods.scarabol.commands.warp.spawn</b><br>Warps the given player to the spawn point. If no playername is provided, warps the calling player.</dd>
+<dt>/warpplace [x] [y] [z]</dt>
+<dd>Requires permission: <b>mods.scarabol.commands.warp.place</b><br>Warps the calling player to the given position.</dd>
+
+<dt>/god</dt>
+<dd>Requires permission: <b>mods.scarabol.commands.god</b><br>Grants or revokes the calling players super permission. This is handy for admins, who want to try a regular peasants gaming experience.</dd>
+<dt>/ban [playername] [days] [reason]</dt>
+<dd>Requires permission: <b>mods.scarabol.commands.ban</b><br>Adds a player to the blacklist and kicks him. /banlog to show the logfile</dd>
+<dt>/kick [playername]</dt>
+<dd>Requires permission: <b>mods.scarabol.commands.kick</b><br>Kicks a player from the server.</dd>
+<dt>/drain</dt>
+<dd>Requires permission: <b>mods.scarabol.commands.drain</b><br>Drys out a small lake or puddle with up to 5k blocks.</dd>
+<dt>/killplayer [playername]</dt>
+<dd>Requires permission: <b>mods.scarabol.commands.killplayer</b><br>Kills the player with the given playername.<br>
+To allow players killing themselfes permission <b>mods.scarabol.commands.killplayer.self</b> can be given.</dd>
+<dt>/killnpcs [playername]</dt>
+<dd>Requires permission: <b>mods.scarabol.commands.killnpcs</b><br>Kills all npcs of the given playername. Useful to reduce lag on crowded servers.<br>
+To allow players killing their own colonists permission <b>mods.scarabol.commands.killnpcs.self</b> can be given.</dd>
+<dt>/inactive [days]</dt>
+<dd>Requires permission: <b>mods.scarabol.commands.inactive</b><br>Lists all players, who have not logged in or out since the last number of days.</dd>
+<dt>/areashow</dt>
+<dd>Toggle command to view all area jobs from others players, too.<br>Permission: <b>mods.scarabol.commands.areashow</b></dd>
+<dt>/customarea</dt>
+<dd>Checks if the player is inside a custom protection area and will print its coordinates. If not inside an area it will print the closest area nearby instead</dd>
+<dt>/spawnnpc {number}</dt>
+<dd>Requires permission: <b>mods.scarabol.commands.npcandbeds</b><br>
+Spawn given number of colonists. Intended for admin/test use, spawning will not cost food and no beds required.</dd>
+<dt>/beds {number}</dt>
+<dd>Requires permission: <b>mods.scarabol.commands.npcandbeds</b><br>
+Create given number of beds around your banner. Intended for admin/test use, beds will be placed in a rectangular spiral form around your banner</dd>
+<dt>/purgebanner</dt>
+<dd>Requires permission: <b>mods.scarabol.purgebanner</b><br>
+For admin staff only. Remove the banner closest to you, if it is the last banner of a colony the colony gets deleted.</dd>
+<dd><b>/purgebanner colony</b>purge a whole colony at once</dd>
+<dd><b>/purgebanner [playername]</b>remove all banners/colonyaccess for a player.</dd>
+<dt>/purgebanner all [range]</dt>
+<dt>/purgebanner days [inactive]</dt>
+<dd>Requires permission: <b>mods.scarabol.purgeallbanner</b><br>
+Purge <b>all</b> banners within the given range. With the second form all banners for inactive players. This command can be dangerous!</dd>
+</dl>
+
+## Installation
+
+**This mod must be installed on the server!**
+
+* download a compatible release ZIP or build from source code
+* place the unzipped `BetterColonyCommands` folder inside your *Colony Survival/gamedata/mods/* directory
+* the installed mod folder must contain `ColonyCommands.dll`, `modInfo.json`, `README.md`, `LICENSE`, `preview.png`, and the example JSON config files
+
+## Building
+
+See [BUILDING.md](BUILDING.md).
+
+**Pull requests welcome!**
